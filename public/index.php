@@ -245,5 +245,7 @@
     <script src="js.js"></script>
 
 </body>
-
+<?php
+require_once __DIR__ . '/../src/Api/WordleClient.php';
+?>
 </html>
