@@ -50,16 +50,6 @@
                     <!-- Row 1 -->
 
                     <div class="row">
-                        <div class="tile"></div>
-                        <div class="tile"></div>
-                        <div class="tile"></div>
-                        <div class="tile"></div>
-                        <div class="tile"></div>
-                    </div>
-
-                    <!-- Row 2 -->
-
-                    <div class="row">
 
                         <div class="tile green">S</div>
                         <div class="tile yellow">L</div>
@@ -67,6 +57,16 @@
                         <div class="tile green">T</div>
                         <div class="tile gray">E</div>
 
+                    </div>
+
+                    <!-- Row 2 -->
+
+                    <div class="row">
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
                     </div>
 
                     <!-- Row 3 -->
