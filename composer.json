@@ -1,0 +1,12 @@
+{
+    "name": "vunguyen/wordle_ai",
+    "description": "ai bot that can play wordle",
+    "require": {
+        "guzzlehttp/guzzle": "^8.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}
