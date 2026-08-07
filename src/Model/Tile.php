@@ -1,13 +1,20 @@
 <?php
 namespace App\Model;
 class Tile{
+    private int $slot;
     private string $letter;
     private string $status;
 
-    public function __construct(string $letter, string $status)
+    public function __construct(int $slot, string $letter, string $status)
     {
-        $this->letter = $letter;
+        $this->slot = $slot;
+        $this->letter = strtolower($letter);
         $this->status = $status;
+    }
+    
+    public function getSlot(): int
+    {
+        return $this->slot;
     }
 
     public function getLetter(): string
