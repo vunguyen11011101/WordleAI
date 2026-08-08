@@ -2,7 +2,7 @@
 
 namespace App\Solver;
 
-use App\Data\WordRepository;
+use App\Solver\WordRepository;
 use App\Model\GameState;
 use RuntimeException;
 

@@ -1,5 +1,5 @@
 <?php 
-
+namespace App\API;
 class WordleClient {
     /**
      * @param string $endpoint
@@ -61,7 +61,6 @@ class WordleClient {
 
         $response = curl_exec($curl);
 
-        // Kiểm tra lỗi cURL
         if ($response === false) {
 
             $error = curl_error($curl);
@@ -71,20 +70,16 @@ class WordleClient {
             throw new Exception("cURL Error: {$error}");
         }
 
-        // Lấy HTTP Status Code
         $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         curl_close($curl);
 
-        // Kiểm tra HTTP Status
         if ($statusCode !== 200) {
             throw new Exception("HTTP Error: {$statusCode}");
         }
 
-        // Chuyển JSON -> Array
         $data = json_decode($response, true);
 
-        // Kiểm tra JSON hợp lệ
         if (json_last_error() !== JSON_ERROR_NONE) {
             throw new Exception(
                 "JSON Decode Error: " . json_last_error_msg()

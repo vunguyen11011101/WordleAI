@@ -48,15 +48,12 @@
                 <div class="board">
 
                     <!-- Row 1 -->
-
                     <div class="row">
-
-                        <div class="tile green">S</div>
-                        <div class="tile yellow">L</div>
-                        <div class="tile gray">A</div>
-                        <div class="tile green">T</div>
-                        <div class="tile gray">E</div>
-
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
                     </div>
 
                     <!-- Row 2 -->
@@ -124,90 +121,47 @@
                 <div class="info">
 
                     <p>
-                        <strong>Trạng thái:</strong>
-                        Đang giải...
+                        <strong>Status:</strong>
+                        <span id="statusText">Not solved</span>
                     </p>
 
                     <p>
-                        <strong>Lượt:</strong>
-                        2 / 6
+                        <strong>Attempts:</strong>
+                        <span id="attemptText">0 / 6</span>
                     </p>
 
                     <p>
                         <strong>Candidates:</strong>
-                        42
+                        <span id="candidateText">-</span>
                     </p>
 
                     <p>
-                        <strong>Chiến lược:</strong>
-                        Entropy
+                        <strong>Strategy:</strong>
+                        <span id="strategyText">Entropy</span>
                     </p>
 
                 </div>
 
                 <div class="actions">
 
-                    <button class="primary">
-                        ▶ Giải tự động
+                    <button id="autoSolveBtn" class="primary">
+                        ▶ Auto Solve
                     </button>
 
-                    <button>
-                        ⏭ Từng bước
+                    <button id="stepBtn">
+                        ⏭ Step by Step
                     </button>
 
-                    <button>
-                        ↻ Chơi lại
+                    <button id="resetBtn">
+                        ↻ Reset
                     </button>
 
                 </div>
 
                 <hr>
 
-                <h3>Lịch sử reasoning</h3>
-
-                <div class="reasoning-log">
-
-                    <div class="log-item">
-
-                        #1
-
-                        <strong>CRANE</strong>
-
-                        →
-
-                        1 Green
-
-                        2 Yellow
-
-                    </div>
-
-                    <div class="log-item">
-
-                        #2
-
-                        <strong>SLATE</strong>
-
-                        →
-
-                        Filtered to
-
-                        <strong>42 words</strong>
-
-                    </div>
-
-                    <div class="log-item">
-
-                        Evaluating entropy...
-
-                    </div>
-
-                    <div class="log-item">
-
-                        Choosing next guess...
-
-                    </div>
-
-                </div>
+                
+            </div>
 
             </aside>
 
@@ -242,10 +196,10 @@
 
     </div>
 
-    <script src="js.js"></script>
+    <script src="app.js"></script>  
 
 </body>
 <?php
-require_once __DIR__ . '/../src/Api/WordleClient.php';
+require_once __DIR__ . '/../src/API/WordleClient.php';
 ?>
 </html>
