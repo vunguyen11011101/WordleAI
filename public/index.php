@@ -160,7 +160,22 @@
 
                 <hr>
 
-                
+                <div class="test-mode">
+
+    <h3>Test AI</h3>
+
+    <input
+        type="text"
+        id="targetWord"
+        maxlength="5"
+        placeholder="Nhập từ mục tiêu"
+    >
+
+    <button id="testButton">
+        🧪 Test AI
+    </button>
+
+</div>
             </div>
 
             </aside>

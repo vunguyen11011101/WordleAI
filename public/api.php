@@ -23,6 +23,53 @@ try {
         exit;
     }
 
+    $input = json_decode(
+        file_get_contents('php://input'),
+        true
+    );
+
+    $mode = $input['mode'] ?? 'daily';
+
+
+    // =========================
+    // Kiểm tra mode
+    // =========================
+
+    if (!in_array($mode, ['daily', 'test'], true)) {
+
+        throw new RuntimeException(
+            'Invalid game mode.'
+        );
+    }
+
+
+    // =========================
+    // Nếu là test mode
+    // =========================
+
+    $targetWord = null;
+
+    if ($mode === 'test') {
+
+        $targetWord = strtolower(
+            trim($input['target'] ?? '')
+        );
+
+        if ($targetWord === '') {
+
+            throw new RuntimeException(
+                'Target word is required in test mode.'
+            );
+        }
+
+        if (strlen($targetWord) !== 5) {
+
+            throw new RuntimeException(
+                'Target word must contain exactly 5 letters.'
+            );
+        }
+    }
+
     $wordRepository = new WordRepository();
     $wordFilter = new WordFilter();
 
@@ -35,7 +82,8 @@ try {
 
     $autoPlayer = new AutoPlayer(
         $solver,
-        $wordleClient
+        $wordleClient,
+        $targetWord
     );
 
     $gameState = $autoPlayer->playDaily();

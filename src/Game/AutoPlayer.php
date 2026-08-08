@@ -11,13 +11,16 @@ class AutoPlayer
 {
     private Solver $solver;
     private WordleClient $client;
+    private ?string $targetWord;
 
     public function __construct(
         Solver $solver,
-        WordleClient $client
+        WordleClient $client,
+        ?string $targetWord
     ) {
         $this->solver = $solver;
         $this->client = $client;
+        $this->targetWord = $targetWord;
     }
 
     public function playDaily(): GameState
@@ -31,7 +34,14 @@ class AutoPlayer
 
             $guess = $this->solver->solve($gameState);
 
-            $response = $this->client->guessDaily($guess);
+            if ($this->targetWord !== null) {
+                $response = $this->client->guessWord(
+                    $this->targetWord,
+                    $guess
+                );
+            } else {
+                $response = $this->client->guessDaily($guess);
+            }
 
             $tiles = $this->createTiles($response);
             $gameState->getGuessHistory()->addGuess($tiles);

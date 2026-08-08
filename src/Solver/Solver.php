@@ -29,7 +29,7 @@ class Solver
         $words = $this->repository->getAnswers();
 
         $candidates = $this->filter->filter($words, $constraints);
-
+    
         if (empty($candidates)) {
             throw new RuntimeException(
                 "No candidate words satisfy the current constraints."
